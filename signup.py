@@ -22,7 +22,7 @@ def signup():
 
             dict2={username:password}
             r.update(dict2)
-            file.twindowcate(0)
+            file.truncate(0)
             file.close()
 
             file=open('datasheet.txt','w')
@@ -32,15 +32,15 @@ def signup():
 
         except:
             file=open('datasheet.txt','w')
-            pp=str({username:password})
+            pp=str({'username':'password'})
             file.write(pp)
             file.close()
     else:
         messagebox.showerror('Invalid',"Both password should match")
 
-def sign_in():
-    window=Toplevel()
+def signin_page():
     window.destroy()
+    import Signin
 
 #################_____________________________________________________
 img = PhotoImage(file='Signup.png')
@@ -100,10 +100,10 @@ Frame(frame,width=295, height=2, bg='black',).place(x=25,y=247)
 
 
 ######################______________________________________________________
-Button(frame, width=39, pady=7, text='Sign up', bg='#57a1f8',fg='white',border=0,command=signup).place(x=35,y=280)
+signupButton=Button(frame, width=39, pady=7, text='Sign up', bg='#57a1f8',fg='white',border=0,command=signup).place(x=35,y=280)
 label=Label(frame,text="I have an account",fg='blue',bg='white',font=('Microsoft YaHei UI light',9))
 label.place(x=90, y=350)
 
-sign_in = Button(frame, width=6, text='Sign in',border=2,bg='white',cursor='hand2',fg='#57a1f8',command=sign_in).place(x=200,y=350)
+signButton=Button(frame, width=6, text='Sign in',border=2,bg='white',cursor='hand2',fg='#57a1f8',command=signin_page).place(x=200,y=350)
 
 window.mainloop()
